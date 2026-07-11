@@ -1,28 +1,52 @@
-# 🏦 Bank Customer Churn Prediction using Artificial Neural Network (ANN)
+# 🏦 Bank Customer Churn Prediction using Artificial Neural Networks (ANN)
 
-## 📌 Overview
+<div align="center">
 
-This project is a **Deep Learning-based Bank Customer Churn Prediction System** that predicts whether a customer is likely to leave the bank based on their demographic and financial information.
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge\&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=for-the-badge\&logo=tensorflow)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red?style=for-the-badge\&logo=streamlit)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-yellow?style=for-the-badge\&logo=scikitlearn)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-The project consists of three main components:
+### Predict customer churn using a Deep Learning model deployed as an interactive Streamlit web application.
 
-* 🧠 **Artificial Neural Network (ANN) Model** (`ann_model.h5`)
-* 📊 **StandardScaler** (`scaler.pkl`) for preprocessing
-* 🌐 **Streamlit Web Application** (`app.py`) for user interaction
+### 🌐 **Live Demo**
 
-The application accepts customer details, preprocesses the data using the saved scaler, performs inference using the trained ANN model, and displays the probability of churn along with the final prediction.
+**https://churn-predictions-ann.streamlit.app/**
+
+</div>
 
 ---
 
-# 🚀 Features
+# 📖 Overview
 
-* Deep Learning-based Binary Classification
-* Interactive Streamlit Interface
-* Real-time Customer Churn Prediction
-* StandardScaler for consistent preprocessing
-* Probability Score Display
-* Easy Deployment on Hugging Face Spaces
-* Clean and Responsive UI
+Customer churn is one of the biggest challenges faced by banks. Retaining existing customers is significantly more cost-effective than acquiring new ones.
+
+This project leverages an **Artificial Neural Network (ANN)** built with **TensorFlow/Keras** to predict whether a customer is likely to leave the bank based on demographic and financial information.
+
+The trained model is integrated into a **Streamlit web application**, allowing users to perform real-time churn predictions through an intuitive interface.
+
+---
+
+# ✨ Features
+
+* 🧠 Deep Learning-based Binary Classification
+* ⚡ Real-time Customer Churn Prediction
+* 📊 Probability Score for Better Decision Making
+* 🌐 Interactive Streamlit Web Interface
+* 📈 Standardized Input using StandardScaler
+* 🚀 Ready for Cloud Deployment
+* 💡 Clean and User-Friendly UI
+
+---
+
+# 🌐 Live Application
+
+🔗 **Streamlit App**
+
+https://churn-predictions-ann.streamlit.app/
+
+Try different customer profiles and instantly view the churn prediction along with its probability.
 
 ---
 
@@ -31,175 +55,136 @@ The application accepts customer details, preprocesses the data using the saved 
 ```text
 Bank-Customer-Churn-Prediction/
 │
-├── app.py                # Streamlit Frontend
-├── ann_model.h5          # Trained ANN Model
-├── scaler.pkl            # Saved StandardScaler
+├── app.py                 # Streamlit Application
+├── ann_model.h5           # Trained ANN Model
+├── scaler.pkl             # StandardScaler
+├── dataset.csv            # Dataset
 ├── requirements.txt
 ├── README.md
-└── dataset.csv
+└── assets/
+```
+
+---
+
+# 🧠 Model Pipeline
+
+```text
+             Customer Information
+                     │
+                     ▼
+           Data Preprocessing
+         (StandardScaler.pkl)
+                     │
+                     ▼
+     Artificial Neural Network
+        (TensorFlow / Keras)
+                     │
+                     ▼
+      Churn Probability Score
+                     │
+                     ▼
+      Customer Stay / Customer Churn
 ```
 
 ---
 
 # 📊 Dataset
 
-The project uses the **Bank Customer Churn Dataset**.
+The project uses the **Bank Customer Churn Dataset**, containing customer demographic, financial, and behavioral information.
 
-### Input Features
+## Input Features
 
-| Feature         | Description                   |
-| --------------- | ----------------------------- |
-| CreditScore     | Customer's credit score       |
-| Gender          | Customer gender               |
-| Age             | Customer age                  |
-| Tenure          | Number of years with the bank |
-| Balance         | Current account balance       |
-| NumOfProducts   | Number of bank products       |
-| HasCrCard       | Credit card ownership         |
-| IsActiveMember  | Active membership status      |
-| EstimatedSalary | Estimated annual salary       |
+| Feature            | Description              |
+| ------------------ | ------------------------ |
+| Credit Score       | Customer credit score    |
+| Gender             | Male / Female            |
+| Age                | Customer age             |
+| Tenure             | Years with the bank      |
+| Balance            | Current account balance  |
+| Number of Products | Banking products owned   |
+| Has Credit Card    | Yes / No                 |
+| Is Active Member   | Active membership status |
+| Estimated Salary   | Annual salary            |
 
-### Target Variable
+## Target Variable
 
-| Value | Meaning                 |
-| ----- | ----------------------- |
-| 0     | Customer Stays          |
-| 1     | Customer Leaves (Churn) |
-
----
-
-# 🧠 Artificial Neural Network (ANN)
-
-The project uses a fully connected **Artificial Neural Network** for binary classification.
-
-## Model Architecture
-
-| Layer          | Description           |
-| -------------- | --------------------- |
-| Input Layer    | 9 Input Features      |
-| Hidden Layer 1 | Dense Layer (ReLU)    |
-| Hidden Layer 2 | Dense Layer (ReLU)    |
-| Output Layer   | Dense Layer (Sigmoid) |
-
-### Activation Functions
-
-* ReLU
-* Sigmoid
-
-### Optimizer
-
-Adam Optimizer
-
-### Loss Function
-
-Binary Crossentropy
-
-### Evaluation Metric
-
-Accuracy
+| Value | Meaning         |
+| ----- | --------------- |
+| **0** | Customer Stays  |
+| **1** | Customer Churns |
 
 ---
 
-# 📈 Data Preprocessing
+# 🧠 Artificial Neural Network Architecture
 
-Before training, the following preprocessing steps were performed:
+```text
+Input Layer (9 Features)
+          │
+          ▼
+Dense Layer (ReLU)
+          │
+          ▼
+Dense Layer (ReLU)
+          │
+          ▼
+Output Layer (Sigmoid)
+```
+
+### Model Configuration
+
+| Parameter         | Value               |
+| ----------------- | ------------------- |
+| Framework         | TensorFlow / Keras  |
+| Optimizer         | Adam                |
+| Loss Function     | Binary Crossentropy |
+| Output Activation | Sigmoid             |
+| Evaluation Metric | Accuracy            |
+
+---
+
+# ⚙️ Data Preprocessing
+
+The following preprocessing steps were performed before model training:
 
 * Removed unnecessary columns
-* Encoded Gender
+* Encoded categorical values
 * Selected relevant numerical features
-* Split dataset into Training and Testing sets
-* Standardized features using **StandardScaler**
+* Train/Test split
+* Feature Scaling using **StandardScaler**
 
-The fitted scaler was saved as:
-
-```text
-scaler.pkl
-```
-
-This ensures that every new customer entered in the Streamlit application is transformed exactly as the training data.
-
----
-
-# 📁 Model Files
-
-## 🧠 ANN Model
-
-```text
-ann_model.h5
-```
-
-Contains the trained Artificial Neural Network.
-
-Load the model:
-
-```python
-import tensorflow as tf
-
-model = tf.keras.models.load_model("ann_model.h5")
-```
-
----
-
-## 📊 StandardScaler
+The trained scaler is stored as:
 
 ```text
 scaler.pkl
 ```
 
-Contains the trained StandardScaler.
-
-Load the scaler:
-
-```python
-import joblib
-
-scaler = joblib.load("scaler.pkl")
-```
-
-Scale the user input:
-
-```python
-scaled_input = scaler.transform(input_data)
-```
+This guarantees that inference data is transformed exactly as the training data.
 
 ---
 
-## 🌐 Streamlit Frontend
+# 🚀 How Prediction Works
 
 ```text
-app.py
-```
-
-The frontend collects customer information, preprocesses the data using the saved StandardScaler, sends it to the ANN model, and displays the prediction result.
-
----
-
-# 🔄 Prediction Workflow
-
-```text
-User Input
-      │
-      ▼
-Streamlit Frontend
-      │
-      ▼
-StandardScaler (scaler.pkl)
-      │
-      ▼
-ANN Model (ann_model.h5)
-      │
-      ▼
+Customer Inputs
+        │
+        ▼
+StandardScaler
+        │
+        ▼
+Artificial Neural Network
+        │
+        ▼
 Prediction Probability
-      │
-      ▼
+        │
+        ▼
 Stay or Churn
 ```
 
 ---
 
-# 🖥️ User Inputs
+# 🖥️ Application Inputs
 
-The application accepts the following inputs:
+The web application accepts:
 
 * Credit Score
 * Gender
@@ -207,13 +192,13 @@ The application accepts the following inputs:
 * Tenure
 * Balance
 * Number of Products
-* Has Credit Card
-* Is Active Member
+* Credit Card Status
+* Active Membership
 * Estimated Salary
 
 ---
 
-# 📌 Example Prediction
+# 📈 Sample Prediction
 
 ### Input
 
@@ -229,37 +214,51 @@ Is Active Member    : Yes
 Estimated Salary    : 101348.88
 ```
 
-### Model Output
+### Output
 
 ```text
-Prediction Probability : 0.34
+Prediction Probability : 34%
 
+Prediction :
 Customer is likely to Stay.
 ```
 
 ---
 
-# ⚙️ Installation
+# 🛠️ Tech Stack
+
+| Category            | Technologies      |
+| ------------------- | ----------------- |
+| Language            | Python            |
+| Deep Learning       | TensorFlow, Keras |
+| Machine Learning    | Scikit-learn      |
+| Data Processing     | Pandas, NumPy     |
+| Web Framework       | Streamlit         |
+| Model Serialization | Joblib            |
+
+---
+
+# 💻 Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Bank-Customer-Churn-Prediction.git
+git clone https://github.com/M-Sudheer18/Churn_Prediction-Using-ANN.git
 ```
 
-Move to the project directory
+Navigate into the project
 
 ```bash
-cd Bank-Customer-Churn-Prediction
+cd Churn_Prediction-Using-ANN
 ```
 
-Create Virtual Environment
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate Virtual Environment
+Activate environment
 
 ### Windows
 
@@ -267,7 +266,7 @@ Activate Virtual Environment
 venv\Scripts\activate
 ```
 
-### Linux / macOS
+### Linux/macOS
 
 ```bash
 source venv/bin/activate
@@ -281,11 +280,13 @@ pip install -r requirements.txt
 
 ---
 
-# ▶️ Run the Application
+# ▶️ Run Locally
 
 ```bash
 streamlit run app.py
 ```
+
+The application will launch automatically in your browser.
 
 ---
 
@@ -302,76 +303,91 @@ joblib
 
 ---
 
-# 🌍 Deployment
+# ☁️ Deployment
 
-This project can be deployed on:
+The project can be deployed on:
 
-* 🤗 Hugging Face Spaces
-* Streamlit Community Cloud
-* Render
-* Railway
-* AWS EC2
-* Microsoft Azure
-* Google Cloud Platform
+* ✅ Streamlit Community Cloud
+* ✅ Hugging Face Spaces
+* ✅ Render
+* ✅ Railway
+* ✅ AWS EC2
+* ✅ Microsoft Azure
+* ✅ Google Cloud Platform
 
 ---
 
-# 📸 Application Preview
+# 🚀 Future Improvements
+
+* 🌍 Geography Feature Support
+* 📈 SHAP Explainability
+* 📂 Batch Prediction using CSV Upload
+* ⚡ FastAPI REST API
+* 🐳 Docker Containerization
+* 📊 Model Monitoring Dashboard
+* 🗄️ Database Integration
+* 🔐 Authentication & User Login
+* 📉 Model Performance Visualization
+
+---
+
+# 📷 Application Preview
 
 The application provides:
 
-* Interactive sliders and input fields
-* Real-time prediction
-* Churn probability score
-* Customer Stay/Leave result
+* Interactive Input Widgets
+* Instant Predictions
+* Churn Probability
+* Responsive Layout
+* Easy-to-use Interface
 
----
-
-# 🚀 Future Enhancements
-
-* Add Geography feature
-* SHAP Explainable AI
-* Batch Prediction using CSV Upload
-* REST API with FastAPI
-* Docker Containerization
-* Model Monitoring Dashboard
-* Database Integration
-* Authentication System
+> *(Add screenshots or GIFs here for a richer GitHub presentation.)*
 
 ---
 
 # 👨‍💻 Author
 
-**Sudheer Muthyala**
+## **Sudheer Muthyala**
 
 **B.Tech – Electronics and Communication Engineering**
 
-Aspiring **Data Scientist | Machine Learning | Deep Learning | Python Developer**
+**Aspiring Data Scientist | Machine Learning Engineer | Deep Learning Enthusiast | Python Developer**
 
-GitHub: https://github.com/yourusername
+### Connect with Me
 
-LinkedIn: https://linkedin.com/in/yourprofile
-
----
-
-# 📄 License
-
-This project is released under the **MIT License**.
-
-You are free to use, modify, and distribute this project for educational and research purposes.
+* **GitHub:** https://github.com/M-Sudheer18
+* **LinkedIn:** https://www.linkedin.com/in/sudheer-muthyala-317180268
 
 ---
 
-## ⭐ Support
+# ⭐ Support the Project
 
-If you found this project helpful:
+If you found this project useful:
 
 ⭐ Star the repository
 
 🍴 Fork the repository
 
-🛠️ Contribute improvements
+💬 Share your feedback
 
-📢 Share it with others
+🚀 Contribute improvements
 
-Thank you for visiting this project!
+Every contribution is appreciated!
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and distribute it for educational and research purposes.
+
+---
+
+<div align="center">
+
+## ⭐ If you like this project, don't forget to Star the Repository!
+
+**Made with ❤️ by Sudheer Muthyala**
+
+</div>
